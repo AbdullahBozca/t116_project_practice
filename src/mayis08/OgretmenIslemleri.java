@@ -50,13 +50,14 @@ public class OgretmenIslemleri {
                 System.out.println("SİLİNECEK ÖĞRETMENİN BİLGİLERİ: "+ ogretmenList.get(i).toString());
                 ogretmenList.remove(i);
                 flag=1;
-                ogretmenMenu();
+                break;
             }
         }
         if (flag==0){
             System.out.println("ARADIĞINIZ KİŞİ YOKTUR...");
             ogretmenMenu();
         }
+        ogretmenMenu();
     }
 
     private void arama() {
@@ -67,13 +68,14 @@ public class OgretmenIslemleri {
             if (tcNo.equals(each.getTcNo())) {
                 System.out.println("ARADIĞINIZ KİŞİNİN BİLGİLERİ: " + each.toString());
                 flag = false;
-                ogretmenMenu();
+                break;
             }
         }
         if (flag) {
             System.out.println("ARADIĞINIZ KİŞİ YOKTUR...");
             ogretmenMenu();
         }
+        ogretmenMenu();
     }
 
     private void listeleme() {
