@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class OgrenciIslemleri {
     Scanner scan = new Scanner(System.in);
-    ArrayList<Ogrenci> ogrenciList=new ArrayList();
+    static ArrayList<Ogrenci> ogrenciList=new ArrayList();
     void ogrenciMenu() {
         System.out.println("============= İŞLEMLER =============\n" +
                 "\t\t 1-EKLEME\n" +
@@ -27,10 +27,38 @@ public class OgrenciIslemleri {
                 listeleme();
             }
             case '4': {
+                silme();
             }
             case 'Q': {
+                Anamenu anamenu=new Anamenu();
+                anamenu.menu();
+            }
+            default:{
+                System.out.println("HATALI GİRİŞ YAPTINIZ...");
+                ogrenciMenu();
             }
         }
+    }
+
+    private void silme() {
+        //kimlik no ile silme ve arama
+        System.out.print("SİLİNECEK ÖĞRENCİNİN TCNO SUNU GİRİNİZ: ");
+        String tcNo=scan.next();
+        boolean flag=false;
+        for (int i = 0; i < ogrenciList.size(); i++) {
+            if (tcNo.equals(ogrenciList.get(i).getTcNo())){
+                System.out.println("SİLİNECEK ÖĞRENCİNİN BİLGİLERİ: "+ ogrenciList.get(i).toString());
+                ogrenciList.remove(i);
+                flag=true;
+                listeleme();
+            }
+        }
+        if (!flag){ // bu if bloğunun çalışabilmesi için false değeri gelmeli
+            System.out.println(tcNo+" YA AİT VERİ BULMAMAKTADIR...");
+            listeleme();
+        }
+
+
     }
 
     private void arama() {
@@ -78,6 +106,6 @@ public class OgrenciIslemleri {
         ogrenciList.add(ogrenci);
 
         listeleme();
-        ogrenciMenu();
+
     }
 }
