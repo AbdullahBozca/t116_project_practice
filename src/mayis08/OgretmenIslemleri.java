@@ -3,7 +3,7 @@ package mayis08;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class OgretmenIslemleri {
+public class OgretmenIslemleri  {
     Scanner scan = new Scanner(System.in);
     static ArrayList<Ogretmen> ogretmenList = new ArrayList<>();
 
